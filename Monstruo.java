@@ -10,6 +10,7 @@ public class Monstruo extends Carta implements EfectoCarta {
 		this.nivelMonstruo = nivelMonstruo;
 		this.recompensaNivel = recompensaNivel;
 	}
+	
 	public Monstruo() {
 		super();
 		this.nivelMonstruo = 0;
@@ -18,7 +19,7 @@ public class Monstruo extends Carta implements EfectoCarta {
 
 	@Override
 	public String toString() {
-		return "El monstruo " + nombre + "(nivel=" + nivelMonstruo + ", recompensa=" + recompensaNivel + ")";
+		return "El monstruo " + nombre + " (nivel= " + nivelMonstruo + ", recompensa= " + recompensaNivel + ")";
 	}
 
 	

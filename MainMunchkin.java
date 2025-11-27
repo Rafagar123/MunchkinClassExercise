@@ -9,14 +9,15 @@ public class MainMunchkin {
 
 		Scanner scan = new Scanner(System.in);
 		Scanner scan2 = new Scanner(System.in);
-		int numJugadores = scan.nextInt();
-		ArrayList <Jugador> jugadores=new ArrayList<Jugador>(numJugadores);
 		
 		System.out.println("Introduzca el número de jugadores: ");
+		int numJugadores = scan.nextInt();
+		ArrayList <Jugador> jugadores=new ArrayList<Jugador>(numJugadores);
+
 
 		for (int i=0; i < numJugadores; i++) {
 			System.out.println("Introduzca el jugador: ");
-			String nombreJugador=scan2.nextLine();
+			String nombreJugador = scan2.nextLine();
 			ArrayList <Tesoro> tesoroJugador = new ArrayList<Tesoro>();
 			Jugador jugadorActual = new Jugador(nombreJugador, 1, tesoroJugador);
 			jugadores.add(jugadorActual);

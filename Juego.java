@@ -7,8 +7,8 @@ public class Juego {
 	protected ArrayList<Jugador> jugadores;
 	protected Mazo mazoPuerta;
 	protected Mazo mazoTesoro;
-	protected int ronda=1;
-	protected boolean terminado=false;
+	protected int ronda = 1;
+	protected boolean terminado = false;
 
 	Random aleatorio = new Random();
 
@@ -76,25 +76,24 @@ public class Juego {
 		mazoPuerta.addCarta(new Maldicion("Maldición de la bruja deficiente", "Te jode, pero no mucho" ));
 		mazoPuerta.addCarta(new Maldicion("Maldición del vino del mercadona", "Prepárate para esta noche" ));
 
-
 		mazoPuerta.mezclar();
 		mazoTesoro.mezclar();
 	}
 
 
 	public void robarTesoro (Jugador jugador) {
-		int num= aleatorio.nextInt(mazoTesoro.getMazoSize());
+		int num = aleatorio.nextInt(mazoTesoro.getMazoSize());
 		jugador.recibirTesoro((Tesoro) mazoTesoro.robar(num));
 	}
 
 	public Carta robarPuerta () {
-		int num= aleatorio.nextInt(mazoPuerta.getMazoSize());
+		int num = aleatorio.nextInt(mazoPuerta.getMazoSize());
 		return mazoPuerta.robar(num);
 	}
 
 	public void intentarRobo (Jugador jugadorActual) {
-		int numAleatorio= aleatorio.nextInt(3);
-		int numJugador=aleatorio.nextInt(this.jugadores.size());
+		int numAleatorio = aleatorio.nextInt(3);
+		int numJugador =aleatorio.nextInt(this.jugadores.size());
 		Jugador jugadorRobado=this.jugadores.get(numJugador);
 
 		if(numAleatorio==1 && jugadorRobado.tesoros.size()!=0 && jugadorRobado!=jugadorActual) {
@@ -105,17 +104,17 @@ public class Juego {
 
 	}
 
-
 	public void jugar() {
 
 		do {
 			System.out.println("*******************************************RONDA " + ronda + "**********************************************************");
-			
+			System.out.println();
 			for(Jugador jugadorActual : jugadores) {
+				
 				if(!terminado) {
 					
-					Carta cartaActual= robarPuerta();
-					Juego juegoActual= new Juego(this.jugadores, this.mazoPuerta, this.mazoTesoro);
+					Carta cartaActual = robarPuerta();
+					Juego juegoActual = new Juego(this.jugadores, this.mazoPuerta, this.mazoTesoro);
 
 					System.out.println(" >>>>>>>>>>>>>>>>>>>> Es el turno de " + jugadorActual.nombre + ", con nivel " + jugadorActual.nivel + " y tesoros " + jugadorActual.tesoros.size());
 					System.out.println("Se ha robado una carta");
@@ -131,16 +130,18 @@ public class Juego {
 					}
 
 					intentarRobo(jugadorActual);
+					
+					System.out.println();
 
 					jugadorActual.infoJugador();
 
 					if (jugadorActual.haGanado()) {
-						terminado=true;
-						System.out.println("El jugador actual ha ganado!");
+						terminado = true;
+						System.out.println(" *^(·_·)^* " + jugadorActual.nombre + " ha ganado! *^(·_·)^*");
 					}
 
 					if (mazoPuerta.estaVacio() || mazoTesoro.estaVacio()) {
-						terminado=true;
+						terminado = true;
 						System.out.println("No se puede seguir jugando porque uno de los mazos se ha agotado");
 					}
 					
@@ -149,9 +150,9 @@ public class Juego {
 				}
 			}
 
-			ronda=ronda+1;
+			ronda = ronda + 1;
 
-		}while((!terminado));
+		} while (!terminado);
 
 		System.out.println("La partida ha terminado");
 

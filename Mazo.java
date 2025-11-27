@@ -5,11 +5,11 @@ public class Mazo {
 	protected ArrayList<Carta> cartas;
 
 	public Mazo (ArrayList<Carta> cartas) {
-		this.cartas=cartas;
+		this.cartas = cartas;
 	}
 
 	public Mazo() {
-		this.cartas= new ArrayList<Carta>();
+		this.cartas = new ArrayList<Carta>();
 	}
 
 	public void addCarta (Carta carta) {
@@ -23,7 +23,7 @@ public class Mazo {
 	public Carta robar(int num) {
 		Carta cartaElegida;
 		
-		cartaElegida=this.cartas.get(num);
+		cartaElegida = this.cartas.get(num);
 		this.cartas.remove(num);
 		
 		return cartaElegida;

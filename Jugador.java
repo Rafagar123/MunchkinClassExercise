@@ -20,7 +20,7 @@ public class Jugador {
 	}
 
 	public int getFuerza() {
-		int sumaBonus=0;
+		int sumaBonus = 0;
 		for (Tesoro tesoroActual : tesoros) {
 			sumaBonus += tesoroActual.bonus;
 		}
@@ -48,7 +48,7 @@ public class Jugador {
 
 
 	public boolean haGanado() {
-		if (this.nivel>=5) {
+		if (this.nivel >= 5) {
 			return true;
 		} else {
 			return false;
@@ -61,7 +61,7 @@ public class Jugador {
 	}
 
 	public void infoJugador() {
-		System.out.println("Info del jugador en esta ronda:" +toString());
+		System.out.println("Info del jugador en esta ronda: " + toString());
 	}
 
 

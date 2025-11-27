@@ -4,11 +4,11 @@ public abstract class Carta {
 	protected String nombre;
 
 	public Carta (String nombre) {
-		this.nombre=nombre;
+		this.nombre = nombre;
 	}
 
 	public Carta() {
-		this.nombre="";
+		this.nombre = "";
 	}
 
 	public String getNombre() {

@@ -6,12 +6,12 @@ public class Maldicion extends Carta implements EfectoCarta{
 
 	public Maldicion (String nombre, String descripcion) {
 		super(nombre);	
-		this.descripcion=descripcion;
+		this.descripcion = descripcion;
 	}
 
 	public Maldicion () {
 		super();	
-		this.descripcion="";
+		this.descripcion = "";
 	}
 
 	@Override
