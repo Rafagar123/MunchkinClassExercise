@@ -143,8 +143,9 @@ public class Juego {
 				}
 			}
 			ronda=ronda+1;
-		}while((!terminado)&&(!mazoPuerta.estaVacio())&&(!mazoTesoro.estaVacio()));
+		}while((!terminado));
 		
+		//&&(!mazoPuerta.estaVacio())&&(!mazoTesoro.estaVacio())
 	
 		System.out.println("La partida ha terminado");
 	
