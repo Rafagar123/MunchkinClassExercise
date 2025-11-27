@@ -51,13 +51,17 @@ public class Juego {
 		mazoTesoro.addCarta((new Tesoro("Casco y espuelas del rey Arturo", TipoTesoro.ARMADURA, 1 )));
 		mazoPuerta.addCarta((new Monstruo("Hidra de una cabeza", 1, 1 )));
 		mazoPuerta.addCarta((new Monstruo("Perro oloroso", 1, 1 )));
-		mazoPuerta.addCarta((new Monstruo("Tu tío de Mérida", 1, 2 )));
+		mazoPuerta.addCarta((new Monstruo("Tu tío de Matalascañas", 1, 2 )));
 		mazoPuerta.addCarta((new Monstruo("Toalla que nunca seca bien", 1, 1 )));
 		mazoPuerta.addCarta((new Monstruo("Gallina bicéfala", 1, 1 )));
+		mazoPuerta.addCarta((new Monstruo("Gato de escayola", 1, 2 )));
+		mazoPuerta.addCarta((new Monstruo("Arturo Perez Reverte", 1, 2 )));
 		mazoPuerta.addCarta((new Monstruo("León de Nivea", 2, 2 )));
+		mazoPuerta.addCarta((new Monstruo("Gorrión muy muy malvado", 2, 2 )));
 		mazoPuerta.addCarta((new Monstruo("Pajarito chonco", 3, 1 )));
 		mazoPuerta.addCarta((new Monstruo("Gusano morado feo fluorescente", 4, 2 )));
 		mazoPuerta.addCarta((new Monstruo("El Ayuwoki", 6, 2 )));
+		mazoPuerta.addCarta((new Monstruo("Satán made in Almería", 8, 2 )));
 		mazoPuerta.addCarta((new Monstruo("Michael Jackson", 5, 2 )));
 		mazoPuerta.addCarta((new Monstruo("Votante de vox", 1, 1 )));
 		mazoPuerta.addCarta((new Monstruo("El monstruo raro de Stranger Things", 2, 3 )));
