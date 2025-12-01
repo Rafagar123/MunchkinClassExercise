@@ -9,6 +9,9 @@ public class Juego {
 	protected Mazo mazoTesoro;
 	protected int ronda = 1;
 	protected boolean terminado = false;
+	protected String [] colorJugador = {"\033[32m", "\033[33m", "\033[34m", "\033[35m", "\033[36m", "\033[31m"};
+	protected String colorActual;
+	protected int colorContador = 0;
 
 	Random aleatorio = new Random();
 
@@ -60,7 +63,7 @@ public class Juego {
 		mazoPuerta.addCarta(new Monstruo("Satán made in Armilla", 7, 1 ));
 		mazoPuerta.addCarta(new Monstruo("Michael Jackson", 5, 2 ));
 		mazoPuerta.addCarta(new Monstruo("Votante de vox", 1, 1 ));
-		mazoPuerta.addCarta(new Monstruo("El monstruo raro de Stranger Things", 2, 3 ));
+		mazoPuerta.addCarta(new Monstruo("El monstruo raro de Stranger Things", 2, 2));
 		mazoPuerta.addCarta(new Monstruo("Fosquito caducado", 3, 2 ));
 		mazoPuerta.addCarta(new Monstruo("Hada madrina rácana", 4, 1 ));
 		mazoPuerta.addCarta(new Monstruo("Carmen Ayuso desquiciada", 1, 1 ));
@@ -79,8 +82,7 @@ public class Juego {
 		mazoPuerta.mezclar();
 		mazoTesoro.mezclar();
 	}
-
-
+	
 	public void robarTesoro (Jugador jugador) {
 		int num = aleatorio.nextInt(mazoTesoro.getMazoSize());
 		jugador.recibirTesoro((Tesoro) mazoTesoro.robar(num));
@@ -107,18 +109,23 @@ public class Juego {
 	public void jugar() {
 
 		do {
-			System.out.println("*******************************************RONDA " + ronda + "**********************************************************");
+			System.out.println("*******************************************RONDA " + ronda + "***********************************************************************************************");
 			System.out.println();
 			for(Jugador jugadorActual : jugadores) {
+				
+				if(colorContador == colorJugador.length || jugadorActual == jugadores.get(0)) {
+					colorContador = 0;
+				}
+				
+				colorActual = colorJugador[colorContador];
 				
 				if(!terminado) {
 					
 					Carta cartaActual = robarPuerta();
 					Juego juegoActual = new Juego(this.jugadores, this.mazoPuerta, this.mazoTesoro);
 
-					System.out.println(" >>>>>>>>>>>>>>>>>>>> Es el turno de " + jugadorActual.nombre + ", con nivel " + jugadorActual.nivel + " y tesoros " + jugadorActual.tesoros.size());
-					System.out.println("Se ha robado una carta");
-					System.out.println("La carta que ha recibido es: ");
+					System.out.println(colorActual + " >>>>>>>>>>>>>>>>>>>> Es el turno de " + jugadorActual.nombre + ", con nivel " + jugadorActual.nivel + " y tesoros " + jugadorActual.tesoros.size());
+					System.out.println("La puerta que ha abierto es: ");
 
 					if (cartaActual instanceof Monstruo) {
 						System.out.println(cartaActual.toString());
@@ -145,9 +152,11 @@ public class Juego {
 						System.out.println("No se puede seguir jugando porque uno de los mazos se ha agotado");
 					}
 					
-					System.out.println();
+					System.out.println("\033[0m");
 
 				}
+				
+				colorContador += 1;
 			}
 
 			ronda = ronda + 1;
