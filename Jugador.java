@@ -2,6 +2,7 @@ package munchkin;
 import java.util.ArrayList;
 import java.util.Random;
 
+
 public class Jugador {
 	protected String nombre;
 	protected int nivel;
@@ -18,6 +19,8 @@ public class Jugador {
 		this.nivel = 1;
 		this.tesoros = new ArrayList<Tesoro>();
 	}
+
+	
 
 	public int getFuerza() {
 		int sumaBonus = 0;

@@ -20,6 +20,8 @@ public class Maldicion extends Carta implements EfectoCarta{
 			jugador.bajarNivel(1);
 		} else if (jugador.nivel==1 && jugador.tesoros.size()>0) {
 			jugador.removerTesoroAleatorio();
+		} else {
+			System.out.println("Estás tan mal que no se te puede hacer nada, hij@");
 		}
 	}
 
